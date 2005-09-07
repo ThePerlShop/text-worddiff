@@ -1,0 +1,41 @@
+Name
+    Text::WordDiff - Track changes between documents
+
+Synopsis
+        use Text::WordDiff;
+
+        my $diff = word_diff 'file1.txt', 'file2.txt', { STYLE => 'HTML' };
+        my $diff = word_diff \$string1,   \$string2,   { STYLE => 'ANSIColor' };
+        my $diff = word_diff \*FH1,       \*FH2;       \%options;
+        my $diff = word_diff \&reader1,   \&reader2;
+        my $diff = word_diff \@records1,  \@records2;
+
+        # May also mix input types:
+        my $diff = word_diff \@records1,  'file_B.txt';
+
+Description
+    This module is a variation on the lovely Text::Diff module. Rather than
+    generating traditional line-oriented diffs, however, it instead
+    generates word-oriented diffs. This can be useful for tracking changes
+    in narrative documents or documents with very long lines. To diff source
+    code, one is still best off using Text::Diff. But if you want to see how
+    a short story changed from one version to the next, this module will do
+    the job very nicely.
+
+See Also
+    Text::Diff
+    Text::ParagraphDiff
+    Algorithm::Diff
+
+Bugs
+    Please send bug reports to <bug-text-worddiff@rt.cpan.org>.
+
+Author
+    David Wheeler <david@kineticode.com>
+
+Copyright and License
+    Copyright (c) 2005 Kineticode, Inc. All Rights Reserved.
+
+    This module is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+

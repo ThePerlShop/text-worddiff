@@ -1,0 +1,15 @@
+Build.PL
+Changes
+lib/Text/WordDiff.pm
+lib/Text/WordDiff/ANSIColor.pm
+lib/Text/WordDiff/HTML.pm
+MANIFEST			This list of files
+t/ansicolor.t
+t/base.t
+t/data/left.txt
+t/data/right.txt
+t/html.t
+t/pod.t
+Makefile.PL
+README
+META.yml
