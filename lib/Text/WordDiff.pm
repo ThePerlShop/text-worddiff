@@ -269,8 +269,8 @@ L<bug-text-worddiff@rt.cpan.org> with more information, a suggested
 alternative regular expression to use for splitting text up into tokens, an
 explanation of why your approach is better, and, preferably, a patch.
 Personally, I really only care about Unicode (UTF-8) characters, so in a
-future release I might switch the regular expression to C<<
-qr/(?<!\p{IsWord})(?=\p{IsWord})/ >>.
+future release I might switch the regular expression to
+C<< /(?<!\p{IsWord})(?=\p{IsWord})/ >>.
 
 However, even if none of these approaches works for you, you can still use
 this module; you'll just have to tokenize your strings into words yourself,
