@@ -13,10 +13,12 @@ BEGIN {
     use_ok 'Text::WordDiff::ANSIColor' or die;
 }
 
+use constant STRIKETHROUGH => Text::WordDiff::ANSIColor::STRIKETHROUGH();
+
 my $string1 = 'This is a test';
 my $string2 = 'That was a test';
-my $term_diff = BOLD . RED . 'This is ' . RESET
-              . BOLD . GREEN . 'That was ' . RESET
+my $term_diff = BOLD . RED . STRIKETHROUGH . 'This is ' . RESET
+              . BOLD . GREEN . UNDERLINE . 'That was ' . RESET
               . 'a test';
 
 # Test scalar refs.
@@ -45,15 +47,15 @@ my $time1     = localtime( (stat $filename1)[9] );
 my $time2     = localtime( (stat $filename2)[9] );
 my $header    = "--- $filename1\t$time1\n+++ $filename2\t$time2\n";
 
-my $file_diff = 'This is a ' . BOLD . RED "tst;\n"
-              . 'it ' . RESET . BOLD . GREEN . "test.\n"
+my $file_diff = 'This is a ' . BOLD . RED . STRIKETHROUGH . "tst;\n"
+              . 'it ' . RESET . BOLD . GREEN . UNDERLINE . "test.\n"
               . 'It ' . RESET . "is only a\n"
-              . 'test. Had ' . BOLD . RED . 'it ' . RESET . BOLD
-              . GREEN . 'this ' . RESET . "been an\n"
+              . 'test. Had ' . BOLD . RED . STRIKETHROUGH . 'it ' . RESET
+              . BOLD . GREEN . UNDERLINE . 'this ' . RESET . "been an\n"
               . "actual diff, the results would\n"
-              . 'have been output to ' . BOLD . RED . "HTML.\n"
-              . RESET . BOLD . GREEN . "the terminal.\n"
-              . RESET;
+              . 'have been output to ' . BOLD . RED . STRIKETHROUGH
+              . "HTML.\n" . RESET . BOLD . GREEN . UNDERLINE
+              . "the terminal.\n" . RESET;
 
 is word_diff($filename1, $filename2), $header . $file_diff,
     'Diff by file name should include a header';

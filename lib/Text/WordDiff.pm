@@ -225,6 +225,59 @@ best off using L<Text::Diff|Text::Diff>. But if you want to see how a short
 story changed from one version to the next, this module will do the job very
 nicely.
 
+=head2 What is a Word?
+
+I'm glad you asked! Well, sort of. It's a really hard question to answer. I
+consulted a number of sources, but really just did my best to punt on the
+question by reformulating it as, "How do I split text up into individual
+words?" The short answer is to split on word boundaries. However, every word
+has two boundaries, one at the beginning and one at the end. So splitting on
+C</\b/> didn't work so well. What I really wanted to do was to split on the
+I<beginning> of every word. Fortunately, _Mastering Regular Expressions_
+has a recipe for that: C<< /(?<!\w)(?=\w)/ >>. With that regular expression,
+this sentence, for example, would be split up into the following tokens:
+
+  my @words = (
+      'With ',
+      'that ',
+      'regular ',
+      "expression,\n",
+      'this ',
+      'sentence, ',
+      'for ',
+      'example, ',
+      'would ',
+      'be ',
+      'split ',
+      'up ',
+      'into ',
+      'the ',
+      'following ',
+      'tokens:'
+  );
+
+Note that this allows the tokens to include any spacing or punctuation after
+each word. So it's not just comparing words, but word-like tokens. This makes
+sense to me, at least, as the diff is between these tokens, and thus leads to
+a nice word-and-space-and-punctation type diff. It's not unlike what a word
+processor might do (although a lot of them are character-based, but that
+seemed a bit extreme--feel free to dupe this module into Text::CharDiff!>.
+
+Now, it could well be that there might be localization issues with this
+approach. If so, and you're familiar with them, please drop me a line at
+L<bug-text-worddiff@rt.cpan.org> with more information, a suggested
+alternative regular expression to use for splitting text up into tokens, an
+explanation of why your approach is better, and, preferably, a patch.
+Personally, I really only care about Unicode (UTF-8) characters, so in a
+future release I might switch the regular expression to C<<
+qr/(?<!\p{IsWord})(?=\p{IsWord})/ >>.
+
+However, even if none of these approaches works for you, you can still use
+this module; you'll just have to tokenize your strings into words yourself,
+and pass them to word_diff() as array references:
+
+  word_diff \@my_words1, \@my_words2;
+
 =head1 Options
 
 word_diff() takes two arguments from which to draw input and an optional hash
