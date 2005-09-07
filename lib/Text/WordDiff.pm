@@ -8,7 +8,7 @@ use Algorithm::Diff ();
 use IO::File;
 use Carp;
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 # _Mastering Regular Expressions_, p. 132.
 my $BEGIN_WORD = qr/(?<!\w)(?=\w)/msx;
