@@ -1,3 +1,3 @@
 .file .fileheader { color: #888; }
-.file .hunk ins   { color: #f00; font-weight: bold; }
-.file .hunk del   { color: #0f0; font-weight: bold; }
+.file .hunk ins   { color: #060; font-weight: bold; }
+.file .hunk del   { color: #b22; font-weight: bold; }
