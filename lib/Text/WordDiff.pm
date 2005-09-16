@@ -11,7 +11,9 @@ use Carp;
 $VERSION = '0.02';
 
 # _Mastering Regular Expressions_, p. 132.
-my $BEGIN_WORD = qr/(?<!\w)(?=\w)/msx;
+my $BEGIN_WORD = $] >= 5.006
+    ? qr/(?<!\p{IsWord})(?=\p{IsWord})/msx
+    : qr/(?<!\w)(?=\w)/msx;
 
 my %styles = (
     ANSIColor => undef,
@@ -233,15 +235,20 @@ question by reformulating it as, "How do I split text up into individual
 words?" The short answer is to split on word boundaries. However, every word
 has two boundaries, one at the beginning and one at the end. So splitting on
 C</\b/> didn't work so well. What I really wanted to do was to split on the
-I<beginning> of every word. Fortunately, _Mastering Regular Expressions_
-has a recipe for that: C<< /(?<!\w)(?=\w)/ >>. With that regular expression,
-this sentence, for example, would be split up into the following tokens:
+I<beginning> of every word. Fortunately, _Mastering Regular Expressions_ has a
+recipe for that: C<< /(?<!\w)(?=\w)/ >>. I've borrowed this regular expression
+for use in Perls before 5.6.x, but go for the Unicode variant in 5.6.0 and
+newer: C<< /(?<!\p{IsWord})(?=\p{IsWord})/ >>. With either of these regular
+expressions, this sentence, for example, would be split up into the following
+tokens:
 
   my @words = (
       'With ',
-      'that ',
+      'either ',
+      'of ',
+      'these ',
       'regular ',
-      "expression,\n",
+      "expressions,\n",
       'this ',
       'sentence, ',
       'for ',
@@ -261,18 +268,76 @@ each word. So it's not just comparing words, but word-like tokens. This makes
 sense to me, at least, as the diff is between these tokens, and thus leads to
 a nice word-and-space-and-punctation type diff. It's not unlike what a word
 processor might do (although a lot of them are character-based, but that
-seemed a bit extreme--feel free to dupe this module into Text::CharDiff!>.
+seemed a bit extreme--feel free to dupe this module into Text::CharDiff!).
 
-Now, it could well be that there might be localization issues with this
-approach. If so, and you're familiar with them, please drop me a line at
-L<bug-text-worddiff@rt.cpan.org> with more information, a suggested
-alternative regular expression to use for splitting text up into tokens, an
-explanation of why your approach is better, and, preferably, a patch.
-Personally, I really only care about Unicode (UTF-8) characters, so in a
-future release I might switch the regular expression to
-C<< /(?<!\p{IsWord})(?=\p{IsWord})/ >>.
+Now, I acknowledge that there are localization issues with this approach. In
+particular, it will fail with Chinese, Japanese, and Korean text, as these
+languages don't put non-word characters between words. Ideally, Test::WordDiff
+would then split on every charaters (since a single character often equals a
+word), but such is not the case when the C<utf8> flag is set on a string.
+For example, This simple script:
 
-However, even if none of these approaches works for you, you can still use
+=encoding utf8
+
+  use strict;
+  use utf8;
+  use Data::Dumper;
+  my $string = '뼈뼉뼘뼙뼛뼜뼝뽀뽁뽄뽈뽐뽑뽕뾔뾰뿅뿌뿍뿐뿔뿜뿟뿡쀼쁑쁘쁜쁠쁨쁩삐';
+  my @tokens = split /(?<!\p{IsWord})(?=\p{IsWord})/msx, $string;
+  print Dumper \@tokens;
+
+Outputs:
+
+  $VAR1 = [
+            "\x{bf08}\x{bf09}\x{bf18}\x{bf19}\x{bf1b}\x{bf1c}\x{bf1d}\x{bf40}\x{bf41}\x{bf44}\x{bf48}\x{bf50}\x{bf51}\x{bf55}\x{bf94}\x{bfb0}\x{bfc5}\x{bfcc}\x{bfcd}\x{bfd0}\x{bfd4}\x{bfdc}\x{bfdf}\x{bfe1}\x{c03c}\x{c051}\x{c058}\x{c05c}\x{c060}\x{c068}\x{c069}\x{c090}"
+          ];
+
+Not so useful. It seems to be less of a problem if the C<use utf8;> line is
+commented out, in which caase we get:
+
+  $VAR1 = [
+            '뼈',
+            '뼉',
+            '뼘',
+            '뼙',
+            '뼛',
+            '뼜',
+            '뼝',
+            '뽀',
+            '뽁',
+            '뽄',
+            '뽈',
+            '뽐',
+            '뽑',
+            '뽕',
+            '뾔',
+            '뾰',
+            '뿅',
+            '뿌',
+            '뿍',
+            '뿐',
+            '뿔',
+            '뿜',
+            '뿟',
+            '뿡',
+            '?',
+            '?쁑',
+            '쁘',
+            '쁜',
+            '쁠',
+            '쁨',
+            '쁩',
+            '삐'
+          ];
+
+Someone whose more familiar with non-space-using languages will have to
+explain to me how I might be able to duplicate this pattern when C<utf8;> is
+on, seing as it may very well be important to have it on in order to ensure
+proper character semantics.
+
+However, if my word tokenization approach is just too naive, and you decide
+that you need to take a different approach (maybe use
+L<Lingua::ZH::Toke|Lingua::ZH::Toke> or similar module), you can still use
 this module; you'll just have to tokenize your strings into words yourself,
 and pass them to word_diff() as array references:
 
