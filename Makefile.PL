@@ -25,7 +25,7 @@
       chdir $cwd or die "Cannot chdir() back to $cwd: $!";
     }
     eval "use Module::Build::Compat 0.02; 1" or die $@;
-    use lib '_build/lib';
+    use lib '/usr/local/lib/perl5/site_perl/5.8.7/Module/';
     Module::Build::Compat->run_build_pl(args => \@ARGV);
     require Module::Build;
     Module::Build::Compat->write_makefile(build_class => 'Module::Build');

@@ -5,6 +5,8 @@ author:
   - David Wheeler <david@kineticode.com>
 abstract: Track changes between documents
 license: perl
+resources:
+  license: http://dev.perl.org/licenses/
 requires:
   Algorithm::Diff: 1.19
   HTML::Entities: 0

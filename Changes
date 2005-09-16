@@ -1,6 +1,6 @@
 Revision history for Perl extension Text::WordDiff.
 
-0.02
+0.02  2005-09-16T01:19:16
       - Fixed example CSS so that insert is green and delete is red, instead
         of vice-versa.
       - Added code to split strings into words based on the Unicode \p{IsWord}
