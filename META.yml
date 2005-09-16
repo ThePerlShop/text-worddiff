@@ -1,6 +1,6 @@
 ---
 name: Text-WordDiff
-version: 0.02
+version: 0.03
 author:
   - David Wheeler <david@kineticode.com>
 abstract: Track changes between documents
@@ -17,13 +17,13 @@ build_requires:
 provides:
   Text::WordDiff:
     file: lib/Text/WordDiff.pm
-    version: 0.02
+    version: 0.03
   Text::WordDiff::ANSIColor:
     file: lib/Text/WordDiff/ANSIColor.pm
-    version: 0.02
+    version: 0.03
   Text::WordDiff::Base:
     file: lib/Text/WordDiff.pm
   Text::WordDiff::HTML:
     file: lib/Text/WordDiff/HTML.pm
-    version: 0.02
+    version: 0.03
 generated_by: Module::Build version 0.2702
