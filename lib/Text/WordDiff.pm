@@ -293,7 +293,7 @@ Outputs:
           ];
 
 Not so useful. It seems to be less of a problem if the C<use utf8;> line is
-commented out, in which caase we get:
+commented out, in which case we get:
 
   $VAR1 = [
             '뼈',
