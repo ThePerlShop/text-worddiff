@@ -1,6 +1,8 @@
 Revision history for Perl extension Text::WordDiff.
 
 0.03
+      - Added the "configure_requires" and "recommends" parameters to
+        Build.PL.
 
 0.02  2005-09-16T01:19:16
       - Fixed example CSS so that insert is green and delete is red, instead
