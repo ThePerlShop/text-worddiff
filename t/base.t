@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: base.t 1930 2005-08-08 15:58:16Z theory $
+# $Id$
 
 use strict;
 use Test::More tests => 4;
