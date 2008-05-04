@@ -128,9 +128,14 @@ the F<eg> directory in the Text-WordDiff distribution.
 
 =back
 
-=head1 Bugs
+=head1 Support
 
-Please send bug reports to <bug-text-worddiff@rt.cpan.org>.
+This module is stored in an open repository at the following address:
+
+L<https://svn.kineticode.com/Text-WordDiff/trunk/>
+
+Patches against SVN::Notify are welcome. Please send bug reports to
+<bug-text-worddiff@rt.cpan.org>.
 
 =head1 Author
 
@@ -147,7 +152,7 @@ David Wheeler <david@kineticode.com>
 
 =head1 Copyright and License
 
-Copyright (c) 2005 Kineticode, Inc. All Rights Reserved.
+Copyright (c) 2005-2008 David Wheeler. Some Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.

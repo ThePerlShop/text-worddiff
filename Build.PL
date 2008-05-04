@@ -13,8 +13,9 @@ my $build = Module::Build->new(
         HTML::Entities  => '0',
     },
     build_requires     => {
-        'Test::More' => '0.17',
-        'File::Spec'   => '0',
+        'Module::Build' => '0.2701',
+        'Test::More'    => '0.17',
+        'File::Spec'    => '0',
     },
 );
 $build->create_build_script;
