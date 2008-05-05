@@ -99,7 +99,7 @@ This module is stored in an open repository at the following address:
 
 L<https://svn.kineticode.com/Text-WordDiff/trunk/>
 
-Patches against SVN::Notify are welcome. Please send bug reports to
+Patches against Text::WordDiff are welcome. Please send bug reports to
 <bug-text-worddiff@rt.cpan.org>.
 
 =head1 Author

@@ -1,6 +1,7 @@
 Revision history for Perl extension Text::WordDiff.
 
 0.04
+      - Fixed a pasto in the "Support" section of the documentation.
 
 0.03  2008-05-05T03:27:04
       - Added the "configure_requires" and "recommends" parameters to
