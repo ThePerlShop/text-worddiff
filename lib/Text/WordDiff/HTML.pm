@@ -4,7 +4,7 @@ use strict;
 use HTML::Entities qw(encode_entities);
 use vars qw($VERSION @ISA);
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 @ISA = qw(Text::WordDiff::Base);
 
 sub file_header {
