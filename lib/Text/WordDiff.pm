@@ -331,9 +331,9 @@ commented out, in which case we get:
           ];
 
 Someone whose more familiar with non-space-using languages will have to
-explain to me how I might be able to duplicate this pattern when C<utf8;> is
-on, seing as it may very well be important to have it on in order to ensure
-proper character semantics.
+explain to me how I might be able to duplicate this pattern within the scope
+of C<use utf8;>, seing as it may very well be important to have it on in order
+to ensure proper character semantics.
 
 However, if my word tokenization approach is just too naive, and you decide
 that you need to take a different approach (maybe use

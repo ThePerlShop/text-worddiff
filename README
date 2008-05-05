@@ -87,7 +87,7 @@ Description
               ];
 
     Not so useful. It seems to be less of a problem if the "use utf8;" line
-    is commented out, in which caase we get:
+    is commented out, in which case we get:
 
       $VAR1 = [
                 '뼈',
@@ -125,9 +125,9 @@ Description
               ];
 
     Someone whose more familiar with non-space-using languages will have to
-    explain to me how I might be able to duplicate this pattern when "utf8;"
-    is on, seing as it may very well be important to have it on in order to
-    ensure proper character semantics.
+    explain to me how I might be able to duplicate this pattern within the
+    scope of "use utf8;", seing as it may very well be important to have it
+    on in order to ensure proper character semantics.
 
     However, if my word tokenization approach is just too naive, and you
     decide that you need to take a different approach (maybe use
@@ -143,21 +143,25 @@ Options
     contain the data to be diffed, and each may be in the form of any of the
     following (that is, they can be in two different formats):
 
-    * String
+    *   String
+
         A bare scalar will be assumed to be a file name. The file will be
         opened and split up into words. word_diff() will also "stat" the
         file to get the last modified time for use in the header, unless the
         relevant option ("MTIME_A" or "MTIME_B") has been specified
         explicitly.
 
-    * Scalar Reference
+    *   Scalar Reference
+
         A scalar reference will be assumed to refer to a string. That string
         will be split up into words.
 
-    * Array Reference
+    *   Array Reference
+
         An array reference will be assumed to be a list of words.
 
-    * File Handle
+    *   File Handle
+
         A glob or IO::Handle-derived object will be read from and split up
         into its constituent words.
 
@@ -165,7 +169,8 @@ Options
     Additional options may be specified by the formattting class; see the
     specific class for details.
 
-    * STYLE
+    *   STYLE
+
         "ANSIColor", "HTML" or an object or class name for a class providing
         "file_header()", "hunk_header()", "same_items()", "delete_items()",
         "insert_items()", "hunk_footer()" and "file_footer()" methods.
@@ -189,7 +194,8 @@ Options
         a Unified diff-style header. All of the other formatting methods
         simply return empty strings, and are therefore ripe for overriding.
 
-    * FILENAME_A, MTIME_A, FILENAME_B, MTIME_B
+    *   FILENAME_A, MTIME_A, FILENAME_B, MTIME_B
+
         The name of the file and the modification time "files" in epoch
         seconds. Unless a defined value is specified for these options, they
         will be filled in for each file when word_diff() is passed a
@@ -197,7 +203,8 @@ Options
         "FILENAME_B" are not defined, the header will not be printed by the
         base formatting base class.
 
-    * OUTPUT
+    *   OUTPUT
+
         The method by which diff output should be, well, *output*. Examples
         and their equivalent subroutines:
 
@@ -212,11 +219,13 @@ Options
         piece of content. If "OUTPUT" is an IO::Handle-derived object,
         output will be sent to that handle.
 
-    * FILENAME_PREFIX_A, FILENAME_PREFIX_B
+    *   FILENAME_PREFIX_A, FILENAME_PREFIX_B
+
         The string to print before the filename in the header. Defaults are
         "---", "+++".
 
-    * DIFF_OPTS
+    *   DIFF_OPTS
+
         A hash reference to be passed as the options to
         "Algorithm::Diff->new". See Algorithm::Diff for details on available
         options.
@@ -325,14 +334,19 @@ See Also
     Algorithm::Diff
         The module that makes this all possible.
 
-Bugs
-    Please send bug reports to <bug-text-worddiff@rt.cpan.org>.
+Support
+    This module is stored in an open repository at the following address:
+
+    <https://svn.kineticode.com/Text-WordDiff/trunk/>
+
+    Patches against SVN::Notify are welcome. Please send bug reports to
+    <bug-text-worddiff@rt.cpan.org>.
 
 Author
     David Wheeler <david@kineticode.com>
 
 Copyright and License
-    Copyright (c) 2005 Kineticode, Inc. All Rights Reserved.
+    Copyright (c) 2005-2008 David Wheeler. Some Rights Reserved.
 
     This module is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

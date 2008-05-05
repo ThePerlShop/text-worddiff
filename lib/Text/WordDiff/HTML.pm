@@ -19,17 +19,17 @@ sub file_footer { return '</div>' }
 
 sub same_items {
     shift;
-    return encode_entities( join('', @_) );
+    return encode_entities( join '', @_ );
 }
 
 sub delete_items {
     shift;
-    return '<del>' . encode_entities( join('', @_) ) . '</del>';
+    return '<del>' . encode_entities( join'', @_ ) . '</del>';
 }
 
 sub insert_items {
     shift;
-    return '<ins>' . encode_entities( join('', @_) ) . '</ins>';
+    return '<ins>' . encode_entities( join'', @_ ) . '</ins>';
 }
 
 1;
