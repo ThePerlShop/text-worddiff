@@ -1,6 +1,6 @@
 ---
 name: Text-WordDiff
-version: 0.03
+version: 0.04
 author:
   - 'David Wheeler <david@kineticode.com>'
 abstract: Track changes between documents
@@ -22,15 +22,15 @@ recommends:
 provides:
   Text::WordDiff:
     file: lib/Text/WordDiff.pm
-    version: 0.03
+    version: 0.04
   Text::WordDiff::ANSIColor:
     file: lib/Text/WordDiff/ANSIColor.pm
-    version: 0.03
+    version: 0.04
   Text::WordDiff::Base:
     file: lib/Text/WordDiff.pm
   Text::WordDiff::HTML:
     file: lib/Text/WordDiff/HTML.pm
-    version: 0.03
+    version: 0.04
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
