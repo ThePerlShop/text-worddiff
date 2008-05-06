@@ -1,5 +1,7 @@
 Revision history for Perl extension Text::WordDiff.
 
+0.05
+
 0.04  2008-05-06T17:24:36
       - Fixed a pasto in the "Support" section of the documentation.
       - Fixed an encoding-related test failure on Perl 5.6.2. Thanks to
