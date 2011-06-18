@@ -14,8 +14,9 @@ my $BEGIN_WORD = $] >= 5.006
     : qr/(?<!\w)(?=\w)/msx;
 
 my %styles = (
-    ANSIColor => undef,
-    HTML      => undef,
+    ANSIColor    => undef,
+    HTML         => undef,
+    HTMLTwoLines => undef,
 );
 
 sub import {

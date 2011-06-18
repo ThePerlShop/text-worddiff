@@ -2,6 +2,7 @@ Revision history for Perl extension Text::WordDiff.
 
 0.06
       - Moved repository to GitHub.
+      - Added Text::WordDiff::HTMLTwoLines by Amelia Ireland.
 
 0.05  2009-04-06T18:34:42
       - Fixed documentation typo in Search::WordDiff::ANSIColor. Patch from
