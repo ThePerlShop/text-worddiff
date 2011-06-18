@@ -1,7 +1,5 @@
 package Text::WordDiff;
 
-# $Id$
-
 use strict;
 use vars qw(@ISA $VERSION);
 use Algorithm::Diff ();
