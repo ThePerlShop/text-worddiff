@@ -1,7 +1,5 @@
 #!/usr/bin/perl -w
 
-# $Id$
-
 use strict;
 use Test::More tests => 17;
 use Term::ANSIColor qw(:constants);
