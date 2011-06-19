@@ -1,6 +1,7 @@
 Revision history for Perl extension Text::WordDiff.
 
 0.07
+      - Removed `.gitignore` file.
 
 0.06  2011-06-18T22:20:53
       - Moved repository to GitHub.
