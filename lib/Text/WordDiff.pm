@@ -188,17 +188,6 @@ __END__
 
 ##############################################################################
 
-=begin comment
-
-Fake-out Module::Build. Delete if it ever changes to support =head1 headers
-other than all uppercase.
-
-=head1 NAME
-
-Text::WordDiff - Track changes between documents
-
-=end comment
-
 =head1 Name
 
 Text::WordDiff - Track changes between documents

@@ -16,5 +16,12 @@ my $build = Module::Build->new(
         'Test::More'    => '0.17',
         'File::Spec'    => '0',
     },
+    meta_merge => {
+        resources => {
+            homepage   => 'http://search.cpan.org/dist/Text-WordDiff/',
+            bugtracker => 'http://github.com/theory/test-xpath/issues/',
+            repository => 'http://github.com/theory/test-xpath/tree/',
+        }
+    },
 );
 $build->create_build_script;
