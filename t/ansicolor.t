@@ -45,15 +45,19 @@ my $time1     = localtime( (stat $filename1)[9] );
 my $time2     = localtime( (stat $filename2)[9] );
 my $header    = "--- $filename1\t$time1\n+++ $filename2\t$time2\n";
 
-my $file_diff = 'This is a ' . BOLD . RED . STRIKETHROUGH . "tst;\n"
-              . 'it ' . RESET . BOLD . GREEN . UNDERLINE . "test.\n"
-              . 'It ' . RESET . "is only a\n"
+my $file_diff = 'This is a ' . BOLD . RED . STRIKETHROUGH . "tst;"
+              . RESET . BOLD . GREEN . UNDERLINE . "test." . RESET . "\n"
+              . BOLD . RED . STRIKETHROUGH . "it " . RESET 
+              . BOLD . GREEN . UNDERLINE . "It " . RESET . "is only a\n"
               . 'test. Had ' . BOLD . RED . STRIKETHROUGH . 'it ' . RESET
               . BOLD . GREEN . UNDERLINE . 'this ' . RESET . "been an\n"
               . "actual diff, the results would\n"
-              . 'have been output to ' . BOLD . RED . STRIKETHROUGH
-              . "HTML.\n" . RESET . BOLD . GREEN . UNDERLINE
-              . "the terminal.\n" . RESET;
+              . 'have been output to ' . BOLD . RED . STRIKETHROUGH . "HTML"
+              . RESET . BOLD . GREEN . UNDERLINE . "the terminal" . RESET . ".\n\n"
+              . 'Some string with funny ' . BOLD . RED . STRIKETHROUGH . '$'
+              . RESET . BOLD . GREEN . UNDERLINE . '@' . RESET . "\n"
+              . 'chars in the end' . BOLD . RED . STRIKETHROUGH . '*'
+              . RESET . BOLD . GREEN . UNDERLINE . '?' . RESET . "\n";
 
 is word_diff($filename1, $filename2), $header . $file_diff,
     'Diff by file name should include a header';
