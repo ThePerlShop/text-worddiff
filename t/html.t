@@ -55,8 +55,8 @@ my $file_diff = qq{<div class="file">$header<span class="hunk">This is a </span>
               . qq{actual diff, the results would\n}
               . qq{have been output to </span><span class="hunk"><del>HTML</del>}
               . qq{<ins>the terminal</ins></span>}
-              . qq{<span class="hunk">.\n\nSome string with funny </span>}
-              . qq{<span class="hunk"><del>\$</del><ins>\@</ins></span>}
+              . qq{<span class="hunk">.\n\nSome string with </span>}
+              . qq{<span class="hunk"><del>funny \$</del><ins>funny \@</ins></span>}
               . qq{<span class="hunk">\nchars in the end</span>}
               . qq{<span class="hunk"><del>*</del><ins>?</ins></span>}
               . qq{<span class="hunk">\n</span></div>};
