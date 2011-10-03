@@ -11,7 +11,7 @@ $VERSION = '0.08';
 # _Mastering Regular Expressions_, p. 132.
 my $BEGIN_WORD = $] >= 5.006
     ? qr/(?:(?<!\p{IsWord})(?=\p{IsWord})|(?<!\p{IsPunct})(?=\p{IsPunct})|(?<!\p{IsCntrl})(?=\p{IsCntrl}))/msx
-    : qr/(?<!\w)(?=\w)|(?<![\]\[!"#$%&'()*+,\.\/:;<=>?@\^_`{|}~-])(?=[\]\[!"#$%&'()*+,\.\/:;<=>?@\^_`{|}~-])|(?<![\n\r\t])(?=[\n\r\v])/msx;;
+    : qr/(?:(?<!\w)(?=\w)|(?<![\]\[!"%&'()*,\.\/:;?\{}\-@])(?=[\]\[!"%&'()*,\.\/:;?\{}\-@])|(?<![\n\r\t])(?=[\n\r\t]))/msx;
 
 my %styles = (
     ANSIColor    => undef,

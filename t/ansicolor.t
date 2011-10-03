@@ -54,8 +54,8 @@ my $file_diff = 'This is a ' . BOLD . RED . STRIKETHROUGH . "tst;"
               . "actual diff, the results would\n"
               . 'have been output to ' . BOLD . RED . STRIKETHROUGH . "HTML"
               . RESET . BOLD . GREEN . UNDERLINE . "the terminal" . RESET . ".\n\n"
-              . 'Some string with funny ' . BOLD . RED . STRIKETHROUGH . '$'
-              . RESET . BOLD . GREEN . UNDERLINE . '@' . RESET . "\n"
+              . 'Some string with ' . BOLD . RED . STRIKETHROUGH . 'funny $'
+              . RESET . BOLD . GREEN . UNDERLINE . 'funny @' . RESET . "\n"
               . 'chars in the end' . BOLD . RED . STRIKETHROUGH . '*'
               . RESET . BOLD . GREEN . UNDERLINE . '?' . RESET . "\n";
 

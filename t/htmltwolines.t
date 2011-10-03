@@ -56,8 +56,8 @@ my $file_diff = qq{<div class="file">$header1}
 	. qq{test. Had </span><span class="hunk"><del>it </del></span><span class="hunk">been an\n}
 	. qq{actual diff, the results would\n}
 	. qq{have been output to </span><span class="hunk"><del>HTML</del></span>}
-	. qq{<span class="hunk">.\n\nSome string with funny </span>}
-	. qq{<span class="hunk"><del>\$</del></span>}
+	. qq{<span class="hunk">.\n\nSome string with </span>}
+	. qq{<span class="hunk"><del>funny \$</del></span>}
 	. qq{<span class="hunk">\nchars in the end</span>}
 	. qq{<span class="hunk"><del>*</del></span><span class="hunk">\n</span></div>\n}
 	. qq{<div class="file">$header2}
@@ -67,8 +67,8 @@ my $file_diff = qq{<div class="file">$header1}
 	. qq{test. Had </span><span class="hunk"><ins>this </ins></span><span class="hunk">been an\n}
 	. qq{actual diff, the results would\n}
 	. qq{have been output to </span><span class="hunk"><ins>the terminal</ins></span>}
-	. qq{<span class="hunk">.\n\nSome string with funny </span>}
-	. qq{<span class="hunk"><ins>\@</ins></span>}
+	. qq{<span class="hunk">.\n\nSome string with </span>}
+	. qq{<span class="hunk"><ins>funny \@</ins></span>}
 	. qq{<span class="hunk">\nchars in the end</span>}
 	. qq{<span class="hunk"><ins>?</ins></span><span class="hunk">\n</span></div>\n};
 
