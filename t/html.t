@@ -45,15 +45,21 @@ my $time2     = localtime( (stat $filename2)[9] );
 my $header    = qq{<span class="fileheader">--- $filename1\t$time1\n}
               . qq{+++ $filename2\t$time2\n</span>};
 
-my $file_diff = qq{<div class="file">$header<span class="hunk">This is a }
-              . qq{</span><span class="hunk"><del>tst;\nit </del><ins>test.\n}
-              . qq{It </ins></span><span class="hunk">is only a\n}
-              . qq{test. Had </span><span class="hunk"><del>it </del>}
-              . qq{<ins>this </ins></span><span class="hunk">been an\n}
+my $file_diff = qq{<div class="file">$header<span class="hunk">This is a </span>}
+              . qq{<span class="hunk"><del>tst;</del><ins>test.</ins></span>}
+              . qq{<span class="hunk">\n</span>}
+              . qq{<span class="hunk"><del>it </del><ins>It </ins></span>}
+              . qq{<span class="hunk">is only a\ntest. Had </span>}
+              . qq{<span class="hunk"><del>it </del><ins>this </ins></span>}
+              . qq{<span class="hunk">been an\n}
               . qq{actual diff, the results would\n}
-              . qq{have been output to </span><span class="hunk"><del>HTML.\n}
-              . qq{</del><ins>the terminal.\n</ins></span></div>}
-              ;
+              . qq{have been output to </span><span class="hunk"><del>HTML</del>}
+              . qq{<ins>the terminal</ins></span>}
+              . qq{<span class="hunk">.\n\nSome string with funny </span>}
+              . qq{<span class="hunk"><del>\$</del><ins>\@</ins></span>}
+              . qq{<span class="hunk">\nchars in the end</span>}
+              . qq{<span class="hunk"><del>*</del><ins>?</ins></span>}
+              . qq{<span class="hunk">\n</span></div>};
 
 is word_diff($filename1, $filename2, \%opts), $file_diff,
     'Diff by file name should include a header';

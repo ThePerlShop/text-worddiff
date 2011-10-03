@@ -50,18 +50,27 @@ my $header1    = qq{<span class="fileheader">--- $filename1 $time1</span>};
 my $header2    = qq{<span class="fileheader">+++ $filename2 $time2</span>};
 
 my $file_diff = qq{<div class="file">$header1}
-	. qq{<span class="hunk">This is a </span><span class="hunk"><del>tst;\n}
-	. qq{it </del></span><span class="hunk">is only a\n}
+	. qq{<span class="hunk">This is a </span><span class="hunk"><del>tst;</del></span>}
+	. qq{<span class="hunk">\n</span>}
+	. qq{<span class="hunk"><del>it </del></span><span class="hunk">is only a\n}
 	. qq{test. Had </span><span class="hunk"><del>it </del></span><span class="hunk">been an\n}
 	. qq{actual diff, the results would\n}
-	. qq{have been output to </span><span class="hunk"><del>HTML.\n</del></span></div>\n}
+	. qq{have been output to </span><span class="hunk"><del>HTML</del></span>}
+	. qq{<span class="hunk">.\n\nSome string with funny </span>}
+	. qq{<span class="hunk"><del>\$</del></span>}
+	. qq{<span class="hunk">\nchars in the end</span>}
+	. qq{<span class="hunk"><del>*</del></span><span class="hunk">\n</span></div>\n}
 	. qq{<div class="file">$header2}
-	. qq{<span class="hunk">This is a </span><span class="hunk"><ins>test.\n}
-	. qq{It </ins></span><span class="hunk">is only a\n}
+	. qq{<span class="hunk">This is a </span><span class="hunk"><ins>test.</ins></span>}
+	. qq{<span class="hunk">\n</span>}
+	. qq{<span class="hunk"><ins>It </ins></span><span class="hunk">is only a\n}
 	. qq{test. Had </span><span class="hunk"><ins>this </ins></span><span class="hunk">been an\n}
 	. qq{actual diff, the results would\n}
-	. qq{have been output to </span><span class="hunk"><ins>the terminal.\n</ins></span></div>\n}
-    ;
+	. qq{have been output to </span><span class="hunk"><ins>the terminal</ins></span>}
+	. qq{<span class="hunk">.\n\nSome string with funny </span>}
+	. qq{<span class="hunk"><ins>\@</ins></span>}
+	. qq{<span class="hunk">\nchars in the end</span>}
+	. qq{<span class="hunk"><ins>?</ins></span><span class="hunk">\n</span></div>\n};
 
 is word_diff($filename1, $filename2, \%opts), $file_diff,
     'Diff by file name should include a header';
