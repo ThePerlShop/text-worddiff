@@ -1,6 +1,10 @@
 Revision history for Perl extension Text::WordDiff.
 
 0.08
+      - Control and punctuation characters are now treated as standalone
+        chunks rather than as part of the words the preceed them. This makes
+        for much more intuitive-looking diffs. Thanks to Artem Krivopolenov
+        for the pull request.
 
 0.07  2011-06-19T05:04:42
       - Removed `.gitignore` file.
