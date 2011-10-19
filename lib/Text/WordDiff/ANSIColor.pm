@@ -7,7 +7,7 @@ use vars qw($VERSION @ISA);
 # Term::ANSIColor doesn't support STRIKETHROUGH, so we'll do it ourselves.
 use constant STRIKETHROUGH => "\e[9m";
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 @ISA = qw(Text::WordDiff::Base);
 
 sub same_items {

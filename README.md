@@ -1,4 +1,4 @@
-Text/WordDiff version 0.08
+Text/WordDiff version 0.09
 ==========================
 
 This library's module, Text::WordDiff, is a variation on the lovely

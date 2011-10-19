@@ -6,7 +6,7 @@ use Algorithm::Diff ();
 use IO::File;
 use Carp;
 
-$VERSION = '0.08';
+$VERSION = '0.09';
 
 # _Mastering Regular Expressions_, p. 132.
 my $BEGIN_WORD = $] >= 5.006
