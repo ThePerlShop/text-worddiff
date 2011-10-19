@@ -226,37 +226,46 @@ C</\b/> didn't work so well. What I really wanted to do was to split on the
 I<beginning> of every word. Fortunately, _Mastering Regular Expressions_ has a
 recipe for that: C<< /(?<!\w)(?=\w)/ >>. I've borrowed this regular expression
 for use in Perls before 5.6.x, but go for the Unicode variant in 5.6.0 and
-newer: C<< /(?<!\p{IsWord})(?=\p{IsWord})/ >>. With either of these regular
-expressions, this sentence, for example, would be split up into the following
-tokens:
+newer: C<< /(?<!\p{IsWord})(?=\p{IsWord})/ >>. Adding some additional controls
+for punctuation and control characters, this sentence, for example, would be
+split up into the following tokens:
 
   my @words = (
-      'With ',
-      'either ',
-      'of ',
-      'these ',
-      'regular ',
-      "expressions,\n",
-      'this ',
-      'sentence, ',
-      'for ',
-      'example, ',
-      'would ',
-      'be ',
-      'split ',
-      'up ',
-      'into ',
-      'the ',
-      'following ',
-      'tokens:'
+      "Adding ",
+      "some ",
+      "additional ",
+      "controls",
+      "\n",
+      "for ",
+      "punctuation ",
+      "and ",
+      "control ",
+      "characters",
+      ", ",
+      "this ",
+      "sentence",
+      ", ",
+      "for ",
+      "example",
+      ", ",
+      "would ",
+      "be",
+      "\n",
+      "split ",
+      "up ",
+      "into ",
+      "the ",
+      "following ",
+      "tokens",
+      ":",
   );
 
-Note that this allows the tokens to include any spacing or punctuation after
-each word. So it's not just comparing words, but word-like tokens. This makes
-sense to me, at least, as the diff is between these tokens, and thus leads to
-a nice word-and-space-and-punctation type diff. It's not unlike what a word
-processor might do (although a lot of them are character-based, but that
-seemed a bit extreme--feel free to dupe this module into Text::CharDiff!).
+So it's not just comparing words, but word-like tokens and control/punctuation
+tokens. This makes sense to me, at least, as the diff is between these tokens,
+and thus leads to a nice word-and-space-and-punctuation type diff. It's not
+unlike what a word processor might do (although a lot of them are
+character-based, but that seemed a bit extreme--feel free to dupe this module
+into Text::CharDiff!).
 
 Now, I acknowledge that there are localization issues with this approach. In
 particular, it will fail with Chinese, Japanese, and Korean text, as these
