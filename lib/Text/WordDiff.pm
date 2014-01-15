@@ -270,7 +270,7 @@ into Text::CharDiff!).
 Now, I acknowledge that there are localization issues with this approach. In
 particular, it will fail with Chinese, Japanese, and Korean text, as these
 languages don't put non-word characters between words. Ideally, Test::WordDiff
-would then split on every charaters (since a single character often equals a
+would then split on every charater (since a single character often equals a
 word), but such is not the case when the C<utf8> flag is set on a string.
 For example, This simple script:
 

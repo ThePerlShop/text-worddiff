@@ -1,6 +1,7 @@
 Revision history for Perl extension Text::WordDiff.
 
 0.09
+      - Fixed a typo, thanks to gregor herrmann of the Debian project.
 
 0.08  2011-10-19T22:08:34Z
       - Control and punctuation characters are now treated as standalone
