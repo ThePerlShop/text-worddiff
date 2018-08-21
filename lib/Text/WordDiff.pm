@@ -584,11 +584,13 @@ L<bug-Text-WordDiff@rt.cpan.org|mailto:bug-Text-WordDiff@rt.cpan.org>.
 
 David E. Wheeler <david@justatheory.com>
 
+Currently maintained by the developers of The Perl Shop <tps@cpan.org>.
+
 =head1 Copyright and License
 
 Copyright (c) 2005-2011 David E. Wheeler. Some Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under
-the same terms as Perl itself.
+terms of the Artistic License version 2.0.
 
 =cut
