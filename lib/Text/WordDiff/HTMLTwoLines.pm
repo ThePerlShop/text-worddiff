@@ -169,6 +169,8 @@ the F<eg> directory in the Text-WordDiff distribution.
 
 Amelia Ireland <join(".", $firstname, $lastname) . "@gmail.com">
 
+Currently maintained by the developers of The Perl Shop <tps@cpan.org>.
+
 =head1 Copyright and License
 
 Copyright (c) 2011 Amelia Ireland. Some Rights Reserved.

@@ -115,6 +115,8 @@ other than all uppercase.
 
 David Wheeler <david@kineticode.com>
 
+Currently maintained by the developers of The Perl Shop <tps@cpan.org>.
+
 =head1 Copyright and License
 
 Copyright (c) 2005-2011 David E. Wheeler. Some Rights Reserved.
