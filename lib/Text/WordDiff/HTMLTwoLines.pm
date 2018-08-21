@@ -176,6 +176,6 @@ Currently maintained by the developers of The Perl Shop <tps@cpan.org>.
 Copyright (c) 2011 Amelia Ireland. Some Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
-terms of the Artistic License version 2.0.
+the same terms as Perl itself.
 
 =cut

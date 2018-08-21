@@ -40,5 +40,5 @@ Copyright and License
 Copyright (c) 2005-2011 David E. Wheeler. Some Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under
-terms of the Artistic License version 2.0.
+the same terms as Perl itself.
 
