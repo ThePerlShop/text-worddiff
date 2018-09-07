@@ -478,7 +478,7 @@ reference as its argument, and uses it to construct the object. The nice thing
 about this is that if you want to support other options in your formatting
 class, you can just use them in the formatting object constructed by the
 Text::WordDiff::Base class and document that they can be passed as
-part of the options hash refernce to word_diff().
+part of the options hash reference to word_diff().
 
 =item C<file_header()>
 
